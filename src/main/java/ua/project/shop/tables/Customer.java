@@ -8,16 +8,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Entity (name = "Person")
-@Table (name = "person",
-        uniqueConstraints = {@UniqueConstraint(name = "person_email_unique", columnNames = "email")})
+@Entity (name = "Customer")
+@Table (name = "customer",
+        uniqueConstraints = {@UniqueConstraint(name = "customer_email_unique", columnNames = "email")})
 public class Customer {
     @Id
-    @SequenceGenerator(name = "sequence_person",
-            sequenceName = "sequence_person",
+    @SequenceGenerator(name = "sequence_customer",
+            sequenceName = "sequence_customer",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "sequence_person")
+            generator = "sequence_customer")
     @Column(name = "id")
     private int id;
     @Column(
