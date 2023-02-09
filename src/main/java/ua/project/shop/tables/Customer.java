@@ -51,9 +51,9 @@ public class Customer {
             columnDefinition = "VARCHAR(50)")
     private String email;
     @Column(
-            name = "email",
+            name = "telephone",
             nullable = false)
-    private int telephone;
+    private Long telephone;
 
     public Customer() {}
 
@@ -63,7 +63,7 @@ public class Customer {
                     String city,
                     String address,
                     String email,
-                    int telephone) {
+                    Long telephone) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.state = state;
