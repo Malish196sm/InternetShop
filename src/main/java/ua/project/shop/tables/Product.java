@@ -31,7 +31,7 @@ public class Product {
             columnDefinition = "TEXT")
     private String description;
     @Column(
-            name = "dateCreated",
+            name = "date_created",
             nullable = false)
     private Date dateCreated;
     @Column(
@@ -39,11 +39,11 @@ public class Product {
             nullable = false)
     private double price;
     @Column(
-            name = "categoryId",
+            name = "category_id",
             nullable = false)
     private int categoryId;
     @Column(
-            name = "brandId",
+            name = "bran_id",
             nullable = false)
     private int brandId;
 
