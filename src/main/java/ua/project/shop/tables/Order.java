@@ -20,7 +20,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "sequence_order_id")
     @Column(name = "order_id")
-    private int id;
+    private int orderId;
     @Column(
             name = "product_id",
             nullable = false)

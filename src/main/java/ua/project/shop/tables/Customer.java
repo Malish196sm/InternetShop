@@ -13,13 +13,13 @@ import lombok.ToString;
         uniqueConstraints = {@UniqueConstraint(name = "customer_email_unique", columnNames = "email")})
 public class Customer {
     @Id
-    @SequenceGenerator(name = "sequence_customer",
-            sequenceName = "sequence_customer",
+    @SequenceGenerator(name = "sequence_customer_id",
+            sequenceName = "sequence_customer_id",
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
-            generator = "sequence_customer")
-    @Column(name = "id")
-    private int id;
+            generator = "sequence_customer_id")
+    @Column(name = "customer_id")
+    private int customerId;
     @Column(
             name = "first_name",
             nullable = false,
