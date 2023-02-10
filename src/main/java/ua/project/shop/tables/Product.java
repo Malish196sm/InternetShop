@@ -38,27 +38,25 @@ public class Product {
             name = "price",
             nullable = false)
     private double price;
-    @Column(
-            name = "category_id",
-            nullable = false)
-    private int categoryId;
-    @Column(
-            name = "bran_id",
-            nullable = false)
-    private int brandId;
+
+    @ManyToOne(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "category_id")
+    private Category categoryId;
+
+    @ManyToOne(fetch = FetchType.LAZY,
+            cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "brand_id")
+    private Brand brandId;
 
     public Product(String title,
                    String description,
                    Date dateCreated,
-                   double price,
-                   int categoryId,
-                   int brandId) {
+                   double price) {
         this.title = title;
         this.description = description;
         this.dateCreated = dateCreated;
         this.price = price;
-        this.categoryId = categoryId;
-        this.brandId = brandId;
     }
 
     public Product() {}
