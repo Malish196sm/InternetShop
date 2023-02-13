@@ -18,7 +18,7 @@ public class Product {
             allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "sequence_product_id")
-    @Column(name = "id")
+    @Column(name = "product_id")
     private int productId;
     @Column(
             name = "title",
