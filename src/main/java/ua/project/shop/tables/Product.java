@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -33,7 +35,7 @@ public class Product {
     @Column(
             name = "date_created",
             nullable = false)
-    private Date dateCreated;
+    private LocalDate dateCreated;
     @Column(
             name = "price",
             nullable = false)
@@ -51,7 +53,7 @@ public class Product {
 
     public Product(String title,
                    String description,
-                   Date dateCreated,
+                   LocalDate dateCreated,
                    double price) {
         this.title = title;
         this.description = description;
