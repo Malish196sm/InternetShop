@@ -2,6 +2,7 @@ package ua.project.shop.tables;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -10,6 +11,7 @@ import lombok.ToString;
 @ToString
 @Entity (name = "Category")
 @Table(name = "category")
+@NoArgsConstructor
 public class Category {
     @Id
     @SequenceGenerator(name = "sequence_category_id",
@@ -24,4 +26,8 @@ public class Category {
             nullable = false,
             columnDefinition = "VARCHAR(80)")
     private String categoryName;
+
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
+    }
 }
