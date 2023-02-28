@@ -55,4 +55,13 @@ public class Orders {
     public double getOrderSum() {
         return orderSum = quantity * price.getPrice();
     }
+
+    public Orders(Product productId, Product price, int quantity, double orderSum, LocalDate orderDate, Customer customerId) {
+        this.productId = productId;
+        this.price = price;
+        this.quantity = quantity;
+        this.orderSum = orderSum;
+        this.orderDate = orderDate;
+        this.customerId = customerId;
+    }
 }
