@@ -1,9 +1,7 @@
 package ua.project.shop.tables;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,6 +11,7 @@ import java.util.Date;
 @ToString
 @Entity(name = "Product")
 @Table(name = "product")
+@NoArgsConstructor
 public class Product {
     @Id
     @SequenceGenerator(name = "sequence_product_id",
@@ -60,6 +59,4 @@ public class Product {
         this.dateCreated = dateCreated;
         this.price = price;
     }
-
-    public Product() {}
 }

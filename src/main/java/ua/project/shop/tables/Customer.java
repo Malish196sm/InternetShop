@@ -2,6 +2,7 @@ package ua.project.shop.tables;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -11,6 +12,7 @@ import lombok.ToString;
 @Entity (name = "Customer")
 @Table (name = "customer",
         uniqueConstraints = {@UniqueConstraint(name = "customer_email_unique", columnNames = "email")})
+@NoArgsConstructor
 public class Customer {
     @Id
     @SequenceGenerator(name = "sequence_customer_id",
@@ -54,8 +56,6 @@ public class Customer {
             name = "telephone",
             nullable = false)
     private Long telephone;
-
-    public Customer() {}
 
     public Customer(String firstName,
                     String lastName,
