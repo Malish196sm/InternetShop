@@ -1,8 +1,7 @@
 package ua.project.shop.controllers;
 
 import org.springframework.web.bind.annotation.*;
-import ua.project.shop.tables.Customer;
-import ua.project.shop.tables.Product;
+import ua.project.shop.tables.*;
 
 import java.util.List;
 
@@ -22,6 +21,18 @@ public class Controller {
     public List<Customer> getCustomers(){
     return allServices.getCustomers();
     }
+    @GetMapping("/orders")
+    public List<Orders> getOrders() {
+        return allServices.getOrders();
+    }
+    @GetMapping("/category")
+    public List<Category> getCategories(){
+        return allServices.getCategories();
+    }
+    @GetMapping("/brand")
+    public List<Brand> getBrands(){
+        return allServices.getBrand();
+    }
     @PostMapping("/product")
     public void addProduct(@RequestBody Product product){
     allServices.addProduct(product);
@@ -29,5 +40,17 @@ public class Controller {
     @PostMapping("/customer")
     public void addCustomer(@RequestBody Customer customer){
     allServices.addCustomer(customer);
+    }
+    @PostMapping("/orders")
+    public void addOrders(@RequestBody Orders orders){
+        allServices.addOrders(orders);
+    }
+    @PostMapping("/category")
+    public void addCategory(@RequestBody Category category){
+        allServices.addCategory(category);
+    }
+    @PostMapping("/brand")
+    public void addBrand(@RequestBody Brand brand){
+        allServices.addBrand(brand);
     }
 }
