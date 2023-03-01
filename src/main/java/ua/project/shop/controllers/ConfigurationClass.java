@@ -12,13 +12,6 @@ import java.util.List;
 
 @Configuration
 public class ConfigurationClass {
-
-    private Brand brand;
-    private Category category;
-    private Product product;
-    private Customer customer;
-    private Orders orders;
-
     private final BrandRepository brandRepository;
     private final OrdersRepository ordersRepository;
     private final ProductRepository productRepository;
@@ -32,9 +25,8 @@ public class ConfigurationClass {
         this.customerRepository = customerRepository;
         this.categoryRepository = categoryRepository;
     }
-
     @Bean
-    CommandLineRunner commandLineRunner (CustomerRepository customerRepository) {
+    CommandLineRunner commandLineRunner () {
         return args -> {
             Customer smith = new Customer("John",
                     "Smith",
@@ -58,11 +50,6 @@ public class ConfigurationClass {
                     "alex-bro@gmail.com",
                     3443212l);
             customerRepository.saveAll(List.of(smith, spenser, alex));
-                    };
-    }
-    @Bean
-    CommandLineRunner commandLineRunner1 (ProductRepository productRepository) {
-        return args -> {
             Product p = new Product("Notebook",
                     "some description of the product",
                     LocalDate.of(2012, Month.APRIL, 23),
@@ -76,35 +63,16 @@ public class ConfigurationClass {
                     LocalDate.of(2018, Month.FEBRUARY, 28),
                     28000.99);
             productRepository.saveAll(List.of(p, d, g));
-        };
 
-    }
-    @Bean
-    CommandLineRunner commandLineRunner2 (CategoryRepository categoryRepository) {
-        return args -> {
             Category c = new Category("Notebooks");
-            Category d = new Category("Television");
-            Category g = new Category("Telephone");
-            categoryRepository.saveAll(List.of(c, d, g));
+            Category r = new Category("Television");
+            Category i = new Category("Telephone");
+            categoryRepository.saveAll(List.of(c, r, i));
+
+            Brand b = new Brand("Toshiba", "Japan");
+            Brand h = new Brand("Dell", "USA");
+            Brand o = new Brand("Samsung", "Korea");
+            brandRepository.saveAll(List.of(b, h, o));
         };
     }
-    @Bean
-    CommandLineRunner commandLineRunner3 (BrandRepository brandRepository) {
-        return args -> {
-            Brand b = new Brand("Toshiba", "Japan");
-            Brand d = new Brand("Dell", "USA");
-            Brand g = new Brand("Samsung", "Korea");
-            brandRepository.saveAll(List.of(b, d, g));
-        };
-    }/*@Bean
-    CommandLineRunner commandLineRunner4 (OrdersRepository ordersRepository) {
-        return args -> {
-            Orders o = new Orders(
-                    product.getProductId(),
-                    product.getPrice(), 1, orders.getOrderSum(), orders.getOrderDate(), customer.getCustomerId());
-            ordersRepository.saveAll(List.of(o));
-
-        };
-
-    }*/
 }
